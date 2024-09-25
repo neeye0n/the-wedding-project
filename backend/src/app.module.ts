@@ -1,14 +1,13 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { RsvpService } from './rsvp/rsvp.service';
-import { GsheetsService } from './gsheets/gsheets.service';
-import { RsvpController } from './rsvp/rsvp.controller';
-import { RsvpsController } from './rsvp/rsvps.controller';
+import { GsheetsService } from './services/gsheet/gsheet.service';
+import { InvitesService } from './services/invite/invite.service';
+import { InvitesController } from './controllers/invite/invite.controller';
 
 @Module({
   imports: [],
-  controllers: [AppController, RsvpController, RsvpsController],
-  providers: [AppService, RsvpService, GsheetsService],
+  controllers: [AppController, InvitesController],
+  providers: [AppService, GsheetsService, InvitesService],
 })
 export class AppModule {}

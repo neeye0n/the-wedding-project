@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { DateTime } from 'luxon';
-import { Rsvp } from 'src/dto/rsvp';
-import { GsheetsService } from 'src/gsheets/gsheets.service';
+import { Rsvp } from 'src/models/rsvp';
+import { GsheetsService } from 'src/services/gsheet/gsheet.service';
 
 @Injectable()
-export class RsvpService {
+export class InvitesService {
   private worksSheetId = '';
   private workSheetName = '';
   private dataRange = '';
@@ -19,7 +19,7 @@ export class RsvpService {
     this.responseDateTimeColumn = process.env.RESPONSE_DATE_COLUMN;
   }
 
-  async getAll(): Promise<Rsvp[]> {
+  async listInvites(): Promise<Rsvp[]> {
     let rows = await this.gsheetService.getSheetData(
       this.worksSheetId,
       `${this.workSheetName}${this.dataRange}`, // e.g. Sheet1!A2:X
@@ -27,24 +27,22 @@ export class RsvpService {
 
     // Remove Empty Rows
     rows = rows.filter((innerArray) => innerArray.length > 0);
-
     if (!rows || rows.length === 0) {
       return [];
     }
 
-    const data: Rsvp[] = rows.map((row, index) => new Rsvp(row, index + 2));
+    const data = rows.map((row, index) => new Rsvp(row, index + 2));
     return data;
   }
 
-  async getOne(id: string): Promise<Rsvp> {
-    const rsvpList = await this.getAll();
-    const rsvp = rsvpList.find((rsvp) => rsvp.InviteId === id);
-
-    return rsvp;
+  async getByInviteId(id: string): Promise<Rsvp> {
+    const invites = await this.listInvites();
+    const invite = invites.find((rsvp) => rsvp.InviteId === id);
+    return invite;
   }
 
-  async rsvpTrigger(id: string): Promise<boolean> {
-    const rsvp = await this.getOne(id);
+  async updateRsvp(id: string): Promise<boolean> {
+    const rsvp = await this.getByInviteId(id);
     const updatingRange = `${this.workSheetName}${this.responseFlagColumn}${rsvp.RowNumber}:${this.responseDateTimeColumn}${rsvp.RowNumber}`;
     const updateResult = await this.gsheetService.modifySheet(
       this.worksSheetId,
