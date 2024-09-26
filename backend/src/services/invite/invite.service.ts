@@ -31,8 +31,11 @@ export class InvitesService {
       return [];
     }
 
-    const data = rows.map((row, index) => new Rsvp(row, index + 2));
-    return data;
+    // Map to Rsvp Objects and remove invalid Invites
+    const data = rows
+      .map((row, index) => new Rsvp(row, index + 2))
+      .filter((item) => item.InviteName);
+    return data || [];
   }
 
   async getByInviteId(id: string): Promise<Rsvp> {
@@ -43,6 +46,8 @@ export class InvitesService {
 
   async updateRsvp(id: string): Promise<boolean> {
     const rsvp = await this.getByInviteId(id);
+    if (!rsvp) return false;
+
     const updatingRange = `${this.workSheetName}${this.responseFlagColumn}${rsvp.RowNumber}:${this.responseDateTimeColumn}${rsvp.RowNumber}`;
     const updateResult = await this.gsheetService.modifySheet(
       this.worksSheetId,

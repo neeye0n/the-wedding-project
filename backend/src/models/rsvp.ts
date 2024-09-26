@@ -12,7 +12,10 @@ export class Rsvp {
   constructor(row: string[], index: number) {
     this.RowNumber = index;
     this.InviteName = row[0];
-    this.Members = row[1].split(',').map((name) => name.trim());
+    this.Members = row[1]
+      .split(',')
+      .map((name) => name.trim())
+      .filter((name) => name);
     this.Seats = this.parseStringToNumber(row[2]);
     this.InviteId = row[3];
     this.HasResponded = this.parseStringToBoolean(row[4]);
