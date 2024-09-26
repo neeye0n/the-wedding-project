@@ -30,7 +30,7 @@ export class GsheetsService {
       });
       return response.data.values || [];
     } catch (error) {
-      console.error('Error reading Google Sheet:', error);
+      console.error('Error reading Google Sheet:', error.errors);
       return [];
     }
   }
@@ -54,7 +54,7 @@ export class GsheetsService {
       console.log('Cells updated successfully: ', response.data.updatedRange);
       return true;
     } catch (error) {
-      console.error('Error updating cells: ', error);
+      console.error(`Error updating cells: ${range} `, error.errors);
       return false;
     }
   }

@@ -12,29 +12,37 @@ import { InvitesService } from 'src/services/invite/invite.service';
 export class InvitesController {
   constructor(private readonly inviteService: InvitesService) {}
 
+  // Update RSVP for a specific invite by ID
   @Put(':inviteId/rsvp')
   async updateRSVP(@Param('inviteId') id: string) {
-    const result = await this.inviteService.updateRsvp(id);
-    if (result === false || result === undefined) {
-      throw new HttpException('Bad Request', HttpStatus.BAD_REQUEST);
+    const updateSuccess = await this.inviteService.updateRsvp(id);
+
+    if (!updateSuccess) {
+      throw new HttpException('Unable to update RSVP.', HttpStatus.BAD_REQUEST);
     }
+
+    return {
+      message: 'RSVP updated successfully',
+      inviteId: id,
+    };
   }
 
+  // Get a specific invite by ID
   @Get(':inviteId')
-  async getByInviteId(@Param('inviteId') id: string) {
-    const result = await this.inviteService.getByInviteId(id);
-    if (result === undefined || result === null) {
-      throw new HttpException('Not Found', HttpStatus.NOT_FOUND);
-    }
-    return result;
+  async getInviteById(@Param('inviteId') id: string) {
+    const invite = await this.inviteService.getInviteById(id);
+    return invite;
   }
 
+  // List all invites
   @Get()
-  async listIinvites() {
-    const result = await this.inviteService.listInvites();
-    if (result === undefined || result === null || result.length === 0) {
-      throw new HttpException('Not Found', HttpStatus.NOT_FOUND);
+  async listInvites() {
+    const invites = await this.inviteService.listInvites();
+
+    if (!invites || invites.length === 0) {
+      throw new HttpException('No invites found.', HttpStatus.NOT_FOUND);
     }
-    return result;
+
+    return invites;
   }
 }
