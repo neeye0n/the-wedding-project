@@ -4,10 +4,10 @@ on:
   push:
     branches:
       - main # Deploy on push to the main branch
-      paths-ignore:
-        - '**/src/**'
-        - '**/test/**'
-        - '**/*.md'
+    paths-ignore:
+      - "**/src/**"
+      - "**/test/**"
+      - "**/*.md"
   workflow_dispatch:
 
 env:
