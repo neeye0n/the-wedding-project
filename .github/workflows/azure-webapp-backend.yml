@@ -1,4 +1,4 @@
-name: Build and deploy Node.js app to Azure Web App - myapp
+name: Build and Deploy NestJs app to Azure Web App
 
 on:
   push:
@@ -16,21 +16,35 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@main
 
-      - name: Set up Node.js version
+      - name: Set up Node.js ${{ env.NODE_VERSION }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
 
-      - name: npm install, build, and test
+      - name: npm install and build
         run: |
           npm install
           npm run build --if-present
         working-directory: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
 
-      - name: Zip all files for upload between jobs
-        run: Compress-Archive -Path ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/* -DestinationPath nest.zip
+      - name: Compress files for deployment
+        shell: pwsh # Specify PowerShell shell for this step
+        run: |
+          $sourcePath = "${{ env.AZURE_WEBAPP_PACKAGE_PATH }}"
+          $destinationZip = "nest.zip"
+
+          $filesToZip = Get-ChildItem -Path $sourcePath -Recurse `
+              | Where-Object { 
+                  $_.FullName -notmatch "test" -and
+                  $_.FullName -notmatch "src" -and
+                  $_.FullName -notmatch "\.git" -and
+                  $_.Extension -ne ".md"
+              }
+
+          $filesToZip | Compress-Archive -DestinationPath $destinationZip
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
