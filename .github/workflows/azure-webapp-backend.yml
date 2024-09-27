@@ -5,9 +5,18 @@ on:
     branches:
       - main # Deploy on push to the main branch
     paths-ignore:
-      - "README.md"
-      - ".github/**"
+      - "node_modules/**"
+      - "src/**"
+      - "test/**"
+      - "*.md"
+      - "/webpack-hmr.config.js"
   workflow_dispatch:
+    paths-ignore:
+      - "node_modules/**"
+      - "src/**"
+      - "test/**"
+      - "*.md"
+      - "/webpack-hmr.config.js"
 
 env:
   AZURE_WEBAPP_NAME: hunns-rsvp
