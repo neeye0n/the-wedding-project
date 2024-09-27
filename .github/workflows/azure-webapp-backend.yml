@@ -10,6 +10,7 @@ env:
   AZURE_WEBAPP_NAME: hunns-rsvp
   AZURE_WEBAPP_PACKAGE_PATH: ./backend
   NODE_VERSION: "18.x"
+  ARTIFACT_NAME: nest.zip
 
 jobs:
   build-and-deploy-backend:
@@ -25,28 +26,31 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
 
       - name: npm install and build
-        run: npm install && npm run build --if-present
+        run: npm install && npm run build
         working-directory: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
 
       - name: Compress files for deployment
         shell: bash
         run: |
           SOURCE_PATH="${{ env.AZURE_WEBAPP_PACKAGE_PATH }}"
-          DESTINATION_ZIP="nest.zip"
+          DESTINATION_ZIP="${{ env.ARTIFACT_NAME }}"
 
           zip -r $DESTINATION_ZIP $SOURCE_PATH \
               -x "*src/*" \
               -x "*test/*" \
               -x "*.git/*" \
+              -x "*.gitignore" \
+              -x "*.prettierrc" \
+              -x "*.eslintrc.js" \
               -x "*.md"
 
-      - name: "Deploy to Azure Web App"
+      - name: Deploy to Azure Web App Service
         uses: azure/webapps-deploy@v3
         id: deploy-to-webapp
         with:
           app-name: ${{ env.AZURE_WEBAPP_NAME }}
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_BACKEND }}
-          package: nest.zip
+          package: "${{ env.ARTIFACT_NAME }}"
 
       - name: Delete zip file
-        run: rm nest.zip
+        run: rm "${{ env.ARTIFACT_NAME }}"
