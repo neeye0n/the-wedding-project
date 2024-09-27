@@ -36,7 +36,7 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
 
-      - name: Install Dependencies and Build
+      - name: npm install, build
         run: |
           npm install
           npm run build
