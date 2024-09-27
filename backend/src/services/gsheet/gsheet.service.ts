@@ -1,17 +1,15 @@
 import { Injectable } from '@nestjs/common';
 import { google, sheets_v4 } from 'googleapis';
+import * as fs from 'fs';
 
 @Injectable()
 export class GsheetsService {
   private sheetsApi: sheets_v4.Sheets;
 
   constructor() {
-    // Load the service account key JSON file
-    const serviceAccountPath = process.env.WORKSHEET_KEY;
-
     // Configure a auth client
     const auth = new google.auth.GoogleAuth({
-      keyFile: serviceAccountPath, // Use your service account JSON file
+      credentials: JSON.parse(process.env.WORKSHEET_KEY),
       scopes: [process.env.KEY_SCOPES],
     });
 
