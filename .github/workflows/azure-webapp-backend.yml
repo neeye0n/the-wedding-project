@@ -37,8 +37,8 @@ jobs:
 
           cd $SOURCE_PATH
           zip -r "../$DESTINATION_ZIP" * \
-              -x "*src/*" \
-              -x "*test/*" \
+              -x "./src/*" \
+              -x "./test/*" \
               -x "*.git/*" \
               -x "*.gitignore" \
               -x "*.prettierrc" \
