@@ -1,7 +1,8 @@
 import type { RequestHandler } from './$types';
-import { InvitesService } from '$lib/index';
+import { InvitesService } from '$lib/services/InvitesService';
 import { json } from '@sveltejs/kit';
 import { StatusCodes } from 'http-status-codes';
+import type { RsvpRequestBody } from '../../../../models/rsvpRequestBody';
 
 export const GET: RequestHandler = async ({ params }) => {
 	const { id } = params;
@@ -13,10 +14,16 @@ export const GET: RequestHandler = async ({ params }) => {
 
 export const PUT: RequestHandler = async ({ params, request }) => {
 	const { id } = params; // Get the user ID from the route param
-	const body = await request.json(); // Get the body data
+	const data = await request.json(); // Get the body data
 	const inviteService = new InvitesService();
 
-	const result = await inviteService.updateRsvp(id, body.occupiedSeats);
+	console.log(data);
+	const req: RsvpRequestBody = {
+		RequestedSeats: data.RequestedSeats,
+		IsAttending: data.IsAttending
+	};
+
+	const result = await inviteService.updateRsvp(id, req.RequestedSeats, req.IsAttending);
 
 	if (!result) {
 		console.log(`Unable to update RSVP for ${id}`);
@@ -26,7 +33,6 @@ export const PUT: RequestHandler = async ({ params, request }) => {
 		);
 	}
 
-	// Respond with the updated user
 	return json(
 		{
 			message: 'RSVP updated successfully',
