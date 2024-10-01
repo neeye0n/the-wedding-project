@@ -7,7 +7,7 @@ on:
       - main
     paths:
       - ".github/workflows/azure-static-web-apps-svelte.yml"
-      - "the_hunns/**"
+      - "hunns/**"
 
 env:
   WORKSHEET_KEY: ${{ secrets.WORKSHEET_KEY }}
@@ -15,8 +15,8 @@ env:
   WORKSHEET_ID: ${{ secrets.WORKSHEET_ID }}
   WORKSHEET_NAME: RSVP!
   DATA_RANGE: A2:G
-  RESPONSE_FLAG_COLUMN: E
-  RESPONSE_DATE_COLUMN: G
+  UPDATING_RANGE_START: E
+  UPDATING_RANGE_END: G
 
 jobs:
   build_and_deploy_job:
