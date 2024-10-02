@@ -1,5 +1,3 @@
-<!-- YOU CAN DELETE EVERYTHING IN THIS PAGE -->
-
 <script lang="ts">
 	import { getToastStore } from '@skeletonlabs/skeleton';
 	import type { ToastSettings, ToastStore } from '@skeletonlabs/skeleton';
@@ -8,23 +6,15 @@
 
 	function ping() {
 		const t: ToastSettings = {
-			message: 'Lorem ipsum dolor sit amet consectetur adipisicing elit...'
+			message: 'yo welcome, this site is still in construction. come back later.'
 		};
 		toastStore.trigger(t);
 	}
 </script>
 
-<div class="container h-full mx-auto flex justify-center items-center">
+<div class="container h-full mx-auto flex justify-center items-center text-center">
 	<div class="space-y-5">
 		<h1 class="h1">Let's get cracking bones!</h1>
-		<p>Start by exploring:</p>
-		<ul>
-			<li><code class="code">/src/routes/+layout.svelte</code> - barebones layout</li>
-			<li><code class="code">/src/app.postcss</code> - app wide css</li>
-			<li>
-				<code class="code">/src/routes/+page.svelte</code> - this page, you can replace the contents
-			</li>
-		</ul>
+		<button class="btn btn-lg variant-filled" on:click={ping}>Test Button</button>
 	</div>
-	<button on:click={ping}>Test Button</button>
 </div>

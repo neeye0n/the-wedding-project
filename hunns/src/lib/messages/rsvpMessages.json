@@ -1,18 +1,24 @@
 {
 	"ToastMessages": {
 		"ApiError": "Oops! Something went wrong. Please try again or Contact the RSVP Admin.",
-		"MaxSeatsError": "You can't reserve more than {reservedSeats} seats.",
-		"MinSeatsError": "You can't reserve less than 0 seats."
+		"MaxSeatsError": "You can't get more than {reservedSeats} seats.",
+		"MinSeatsError": "You can't get less than 0 seats."
 	},
 	"UiMessages": {
 		"Header": "You're invited.",
-		"HeaderMessageLine1": "WE WOULD BE DELIGHTED TO HAVE YOU AS OUR GUEST ON OUR SPECIAL DAY!",
-		"HeaderMessageLine2": "WE RESERVED {reservedSeats} SEATS FOR YOU.",
+		"HeaderMessageLine1": "WE'D LOVE TO HAVE YOU WITH US",
+		"HeaderMessageLine2": "WE RESERVED {allocatedSeats} SEAT/S FOR YOU.",
+		"HeaderMessageLine3": "YOU PREVIOUSLY REQUESTED {reservedSeats} SEAT/S.",
 		"WeddingDate": "2025-02-26",
-		"BodyMessage": "If some guests are unable to attend, we'd greatly appreciate it if you could update the number of reserved seats. Thanks you!",
-		"ReservedSeatsLabel": "Reserved Seats",
+		"BodyMessage": "If some guests are unable to attend, we'd greatly appreciate it if you could update the number of {verb} seats. Thanks!",
+		"ReservedSeatsLabel": "{verb} Seats",
 		"AcceptInvitationButton": "ACCEPT",
 		"RefuseIvitationButton": "DECLINE"
+	},
+	"ConfirmationMessages": {
+		"AcceptedLine1": "Thank you for responding to our invite.",
+		"AcceptedLine2": "See you on our special day! You can now close this page.",
+		"RefusedLine1": "Thanks for your response. We'll miss you on our special day! You can now close this page."
 	},
 	"ErrorMessages": {
 		"InternalServerError": [

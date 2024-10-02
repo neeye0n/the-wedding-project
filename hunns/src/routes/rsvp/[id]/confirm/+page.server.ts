@@ -1,6 +1,6 @@
-import { Rsvp } from '../../../models/rsvp';
-import rsvpPageMessages from '../../../lib/messages/rsvpMessages.json';
-import { error } from '@sveltejs/kit';
+import { Rsvp } from '../../../../models/rsvp';
+import rsvpPageMessages from '../../../../lib/messages/rsvpMessages.json';
+import { error, redirect } from '@sveltejs/kit';
 import { StatusCodes } from 'http-status-codes';
 import { RSVP_ISOPEN } from '$env/static/private';
 
@@ -8,7 +8,7 @@ export const load = async (serverLoadEvent) => {
 	let rsvp = {} as Rsvp;
 	const { fetch, params } = serverLoadEvent;
 	const { id } = params;
-	const { ErrorMessages } = rsvpPageMessages;
+	const { ErrorMessages, ConfirmationMessages } = rsvpPageMessages;
 
 	if (RSVP_ISOPEN !== 'true') {
 		error(StatusCodes.FORBIDDEN, {
@@ -31,8 +31,15 @@ export const load = async (serverLoadEvent) => {
 		});
 	}
 
+	if (!rsvp.HasResponded) {
+		throw redirect(StatusCodes.SEE_OTHER, `/rsvp/${id}`);
+	}
+
+	const attending = rsvp.IsAttending && rsvp.HasResponded;
+
 	return {
-		rsvp: rsvp,
-		messages: rsvpPageMessages
+		isAttending: attending,
+		weddingDate: rsvpPageMessages.UiMessages.WeddingDate,
+		messages: ConfirmationMessages
 	};
 };
