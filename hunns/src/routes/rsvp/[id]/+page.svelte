@@ -1,14 +1,18 @@
 <script lang="ts">
 	import { DateTime } from 'luxon';
+	import { getToastStore } from '@skeletonlabs/skeleton';
+	import type { ToastSettings } from '@skeletonlabs/skeleton';
 	import type { RsvpRequestBody } from '../../../models/rsvpRequestBody';
 	import type { PageServerData } from './$types';
-	export let data: PageServerData;
-	export let errorMessage: string | null = null;
+	const toastStore = getToastStore();
 
-	let requestedSeats = data.AllocatedSeats;
+	export let data: PageServerData;
+	let { rsvp, messages } = data;
+	let { ToastMessages, UiMessages } = messages;
+	let requestedSeats = data.rsvp.AllocatedSeats;
 
 	function showReadableDate(): string {
-		const formattedDate = DateTime.fromISO(data.RespondedOn.toString() || '').toLocaleString({
+		const formattedDate = DateTime.fromISO(rsvp.RespondedOn.toString() || '').toLocaleString({
 			weekday: 'short',
 			month: 'short',
 			day: '2-digit',
@@ -20,25 +24,30 @@
 	}
 
 	function getMembers(): string[] {
-		return data.Members;
+		return rsvp.Members;
 	}
 
-	// PUT Function
+	// PUT Function to update RSVP
 	async function handleRsvp(isAttending: boolean) {
 		try {
 			const reqBody: RsvpRequestBody = {
 				IsAttending: isAttending,
 				RequestedSeats: requestedSeats
 			};
-			const response = await fetch(`/app/invites/${data.InviteId}`, {
+			const response = await fetch(`/app/invites/${rsvp.InviteId}`, {
 				method: 'PUT',
 				headers: {
 					'Content-Type': 'application/json'
 				},
 				body: JSON.stringify(reqBody)
 			});
+
 			if (!response.ok) {
-				throw new Error('Failed to update RSVP');
+				const t: ToastSettings = {
+					message: ToastMessages.ApiError,
+					background: 'variant-filled-error'
+				};
+				toastStore.trigger(t);
 			}
 			// Optionally navigate or show a success message
 			alert('RSVP updated successfully!');
@@ -47,7 +56,30 @@
 		}
 	}
 
-	const date = new Date('2025-02-26');
+	function handleInput() {
+		if (requestedSeats > rsvp.AllocatedSeats) {
+			const t: ToastSettings = {
+				message: ToastMessages.MaxSeatsError.replace(
+					'{reservedSeats}',
+					rsvp.AllocatedSeats.toString()
+				),
+				background: 'variant-filled-warning'
+			};
+			toastStore.trigger(t);
+			requestedSeats = rsvp.AllocatedSeats;
+		}
+
+		if (requestedSeats <= 0) {
+			const t: ToastSettings = {
+				message: ToastMessages.MinSeatsError,
+				background: 'variant-filled-warning'
+			};
+			toastStore.trigger(t);
+			requestedSeats = rsvp.AllocatedSeats;
+		}
+	}
+
+	const date = new Date(UiMessages.WeddingDate);
 	const formattedDateParts = [
 		(date.getMonth() + 1).toString().padStart(2, '0'),
 		date.getDate().toString().padStart(2, '0'),
@@ -56,65 +88,72 @@
 </script>
 
 <main>
-	<div class="flex items-center justify-center min-h-screen" style="font-family: Avenir;">
+	<div class="flex items-center justify-center min-h-screen" style="font-family: Avenir LT Std;">
 		<div class="card w-96 p-8 variant-filled block card card-hover p-4">
 			<div class="card-header border-b-[2px] border-primary-900">
-				<h3 class="text-center text-5xl pb-5" style="font-family: Didot;">You're invited</h3>
-				<p class="class text-center text-sm pb-5" style="font-family: Avenir;">
-					WE WOULD BE DELIGHTED TO HAVE YOU AS OUR GUEST ON OUR SPECIAL DAY!
+				<h3 class="text-center text-5xl pb-5" style="font-family: Didot;">
+					{UiMessages.Header}
+				</h3>
+				<p class="class text-center text-sm">
+					{UiMessages.HeaderMessageLine1}
+				</p>
+				<p class="class text-center text-sm pb-5 font-black">
+					{UiMessages.HeaderMessageLine2.replace('{reservedSeats}', rsvp.AllocatedSeats.toString())}
 				</p>
 			</div>
 
-			{#if errorMessage}
-				<p class="error">{errorMessage}</p>
-			{:else if data.HasResponded}
-				<h2>
-					Your response has already been recorded last {showReadableDate()}
-				</h2>
-				<p>Contact the couple if it was a mistake or you want to change your response</p>
-			{:else if data}
-				<div class="p-4 text-md text-center" style="font-family: Avenir;">
-					<ul>
-						{#each getMembers() as member}
-							<li class="font-bold">{member}</li>
-						{/each}
-					</ul>
-				</div>
-				<!-- <label for="attendeeCount">Number of Attendees:</label>
+			<div class="p-4 text-md text-center">
+				<ul>
+					{#each getMembers() as member}
+						<li class="font-bold">{member}</li>
+					{/each}
+				</ul>
+			</div>
+			<div class="justify-center pb-1 text-sm text-center">
+				<p>
+					{UiMessages.BodyMessage}
+				</p>
+				<label for="attendeeCount">
+					<span class="inline-block align-text-middle mt-1 mb-1 font-black"
+						>{UiMessages.ReservedSeatsLabel}</span
+					>
+				</label>
 				<input
+					class="input variant-filled text-right w-1/5"
 					type="number"
 					id="attendeeCount"
 					min="1"
-					max={data.AllocatedSeats}
+					max={rsvp.AllocatedSeats}
 					bind:value={requestedSeats}
-				/> -->
-				<div class="flex justify-center mt-4 pb-1">
-					<div class="flex space-x-4">
-						<button class="btn-lg variant-filled-primary" on:click={() => handleRsvp(true)}
-							>ACCEPT</button
-						>
-						<button class="btn-lg variant-ringed-primary" on:click={() => handleRsvp(false)}
-							>DECLINE</button
-						>
+					on:blur={handleInput}
+				/>
+			</div>
+			<div class="flex justify-center mt-4 pb-1">
+				<div class="flex space-x-4">
+					<button
+						type="button"
+						class="btn-lg variant-filled-primary"
+						on:click={() => handleRsvp(true)}>{UiMessages.AcceptInvitationButton}</button
+					>
+					<button class="btn-lg variant-ringed-primary" on:click={() => handleRsvp(false)}
+						>{UiMessages.RefuseIvitationButton}</button
+					>
+				</div>
+			</div>
+			<div
+				class="date card-footer flex justify-between w-full mt-4 p-1"
+				style="font-family: Belgan Aesthetic;"
+			>
+				{#each formattedDateParts as part, index}
+					<div
+						class="flex-1 text-center text-5xl {index === 0 || index === 1
+							? 'border-r-[2px] border-primary-900'
+							: ''}"
+					>
+						{part}
 					</div>
-				</div>
-				<div
-					class="date card-footer flex justify-between w-full mt-4 p-1"
-					style="font-family: Belgant;"
-				>
-					{#each formattedDateParts as part, index}
-						<div
-							class="flex-1 text-center text-5xl {index === 0 || index === 1
-								? 'border-r-[2px] border-primary-900'
-								: ''}"
-						>
-							{part}
-						</div>
-					{/each}
-				</div>
-			{:else}
-				<p>Loading...</p>
-			{/if}
+				{/each}
+			</div>
 		</div>
 	</div>
 </main>

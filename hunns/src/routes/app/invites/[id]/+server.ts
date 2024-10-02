@@ -9,6 +9,9 @@ export const GET: RequestHandler = async ({ params }) => {
 	const inviteService = new InvitesService();
 
 	const result = await inviteService.getInviteById(id);
+	if (Object.keys(result).length <= 0 || result === null || result === undefined) {
+		return json(result, { status: StatusCodes.NOT_FOUND });
+	}
 	return json(result, { status: StatusCodes.OK });
 };
 
@@ -17,7 +20,6 @@ export const PUT: RequestHandler = async ({ params, request }) => {
 	const data = await request.json(); // Get the body data
 	const inviteService = new InvitesService();
 
-	console.log(data);
 	const req: RsvpRequestBody = {
 		RequestedSeats: data.RequestedSeats,
 		IsAttending: data.IsAttending

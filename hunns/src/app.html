@@ -3,9 +3,14 @@
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
-		<link rel="preload" href="%sveltekit.assets%/fonts/Avenir_35_Light.otf" as="font" type="font/opentype" crossorigin="anonymous"/>
-		<link rel="preload" href="%sveltekit.assets%/fonts/Belgant_Aesthetic.otf" as="font" type="font/opentype" crossorigin="anonymous"/>
-		<link rel="preload" href="%sveltekit.assets%/fonts/Didot_Bold_Italic.ttf" as="font" type="font/truetype" crossorigin="anonymous"/>
+		<link rel="preload" href="%sveltekit.assets%/fonts/AvenirLTStd-Light.woff2" as="font" type="font/woff2" crossorigin="anonymous"/>
+		<link rel="preload" href="%sveltekit.assets%/fonts/AvenirLTStd-Light.woff" as="font" type="font/woff" crossorigin="anonymous"/>
+		
+		<link rel="preload" href="%sveltekit.assets%/fonts/BelganAesthetic-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous"/>
+		<link rel="preload" href="%sveltekit.assets%/fonts/BelganAesthetic-Regular.woff" as="font" type="font/woff" crossorigin="anonymous"/>
+
+		<link rel="preload" href="%sveltekit.assets%/fonts/Didot-HTF-B16-Bold-Ital.woff2" as="font" type="font/woff2" crossorigin="anonymous"/>
+		<link rel="preload" href="%sveltekit.assets%/fonts/Didot-HTF-B16-Bold-Ital.woff" as="font" type="font/woff" crossorigin="anonymous"/>
 		<meta name="viewport" content="width=device-width" />
 		%sveltekit.head%
 	</head>
@@ -20,23 +25,29 @@
 	}
 
 	@font-face {
-		font-family: Avenir;
-		src: url(%sveltekit.assets%/fonts/Avenir_35_Light.otf) format(opentype);
-		font-weight: normal;
-		font-style: normal;
+		font-family: 'Avenir LT Std';
+		src: url(%sveltekit.assets%/fonts/AvenirLTStd-Light.woff2) format('woff2'),
+        	url(%sveltekit.assets%/fonts/AvenirLTStd-Light.woff) format('woff');
+		font-weight: 300;
+    	font-style: normal;
+    	font-display: swap;
 	}
 
 	@font-face {
-		font-family: Belgant;
-		src: url(%sveltekit.assets%/fonts/Belgant_Aesthetic.otf) format(opentype);
+		font-family: 'Belgan Aesthetic';
+		src: url(%sveltekit.assets%/fonts/BelganAesthetic-Regular.woff2) format('woff2'),
+        	url(%sveltekit.assets%/fonts/BelganAesthetic-Regular.woff) format('woff');
 		font-weight: normal;
-		font-style: normal;
+    	font-style: normal;
+    	font-display: swap;
 	}
 
 	@font-face {
-		font-family: Didot;
-		src: url(%sveltekit.assets%/fonts/Didot_Bold_Italic.ttf) format(truetype);
-		font-weight: normal;
-		font-style: normal;
+		font-family: 'Didot';
+		src: url(%sveltekit.assets%/fonts/Didot-HTF-B16-Bold-Ital.woff2) format('woff2'),
+        	url(%sveltekit.assets%/fonts/Didot-HTF-B16-Bold-Ital.woff) format('woff');
+		font-weight: bold;
+    	font-style: normal;
+    	font-display: swap;
 	}
 </style>

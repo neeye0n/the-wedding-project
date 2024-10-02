@@ -18,6 +18,7 @@ const config = {
 			crawl: false,
 			entries: ['/']
 		}
+		
 	}
 };
 export default config;

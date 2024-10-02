@@ -1,0 +1,31 @@
+{
+	"ToastMessages": {
+		"ApiError": "Oops! Something went wrong. Please try again or Contact the RSVP Admin.",
+		"MaxSeatsError": "You can't reserve more than {reservedSeats} seats.",
+		"MinSeatsError": "You can't reserve less than 0 seats."
+	},
+	"UiMessages": {
+		"Header": "You're invited.",
+		"HeaderMessageLine1": "WE WOULD BE DELIGHTED TO HAVE YOU AS OUR GUEST ON OUR SPECIAL DAY!",
+		"HeaderMessageLine2": "WE RESERVED {reservedSeats} SEATS FOR YOU.",
+		"WeddingDate": "2025-02-26",
+		"BodyMessage": "If some guests are unable to attend, we'd greatly appreciate it if you could update the number of reserved seats. Thanks you!",
+		"ReservedSeatsLabel": "Reserved Seats",
+		"AcceptInvitationButton": "ACCEPT",
+		"RefuseIvitationButton": "DECLINE"
+	},
+	"ErrorMessages": {
+		"InternalServerError": [
+			"We're Experiencing Technical Difficulties",
+			"Something went terribly wrong. Contact admin for support."
+		],
+		"InvalidInviteLink": [
+			"Unrecognized Invite",
+			"Oops! It seems this invite isn’t valid. Kindly contact the couple to obtain a valid invitation."
+		],
+		"Closed": [
+			"Thank You for Your Interest!",
+			"Unfortunately, the RSVP period is now closed. Thank you for your understanding."
+		]
+	}
+}

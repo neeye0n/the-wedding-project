@@ -46,18 +46,28 @@ export class InvitesService {
 
 	// Retrieve a specific invite by ID
 	async getInviteById(id: string): Promise<Rsvp> {
-		const invites = await this.listInvites();
-		const invite = invites.find((rsvp) => rsvp.InviteId === id);
+		try {
+			const invites = await this.listInvites();
+			const invite = invites.find((rsvp) => rsvp.InviteId === id);
 
-		if (!invite) {
-			throw new Error(`Invite with ID ${id} not found.`);
+			if (!invite) {
+				console.log(`Invite with ID ${id} not found.`);
+				return {} as Rsvp;
+			}
+
+			return invite;
+		} catch (error) {
+			console.log('Unexpected Error Occurred', error);
+			throw new Error(`Error on trying to get invite data for ${id}`);
 		}
-
-		return invite;
 	}
 
 	async updateRsvp(id: string, requestedSeats: number, isAttending: boolean): Promise<boolean> {
 		const invite = await this.getInviteById(id);
+		if (Object.keys(invite).length <= 0 || invite === null || invite === undefined) {
+			return false;
+		}
+
 		if (requestedSeats > invite.AllocatedSeats || requestedSeats === 0) {
 			console.log(
 				`Invalid seats. Reserved Seats: ${invite.AllocatedSeats} Requested Seats: ${requestedSeats}`
@@ -67,13 +77,19 @@ export class InvitesService {
 
 		if (!isAttending) requestedSeats = 0;
 		// Define the range for the RSVP update (e.g., Sheet1!E2:F2)
-		const updatingRange = `${this.workSheetName}${this.updatingRangeStart}${invite.RowNumber}:${this.updatingRangeEnd}${invite.RowNumber}`;
-		const updateResult = await this.gsheetsService.modifySheet(this.worksSheetId, updatingRange, [
-			requestedSeats.toString(),
-			isAttending.toString(),
-			DateTime.utc().toISO()
-		]);
 
-		return updateResult;
+		try {
+			const updatingRange = `${this.workSheetName}${this.updatingRangeStart}${invite.RowNumber}:${this.updatingRangeEnd}${invite.RowNumber}`;
+			const updateResult = await this.gsheetsService.modifySheet(this.worksSheetId, updatingRange, [
+				requestedSeats.toString(),
+				isAttending.toString(),
+				DateTime.utc().toISO()
+			]);
+
+			return updateResult;
+		} catch (error) {
+			console.log('Unexpected Error Occurred', error);
+			throw new Error(`Error on trying to update invite data for ${id}`);
+		}
 	}
 }

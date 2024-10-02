@@ -1,5 +1,19 @@
 <!-- YOU CAN DELETE EVERYTHING IN THIS PAGE -->
 
+<script lang="ts">
+	import { getToastStore } from '@skeletonlabs/skeleton';
+	import type { ToastSettings, ToastStore } from '@skeletonlabs/skeleton';
+
+	const toastStore = getToastStore();
+
+	function ping() {
+		const t: ToastSettings = {
+			message: 'Lorem ipsum dolor sit amet consectetur adipisicing elit...'
+		};
+		toastStore.trigger(t);
+	}
+</script>
+
 <div class="container h-full mx-auto flex justify-center items-center">
 	<div class="space-y-5">
 		<h1 class="h1">Let's get cracking bones!</h1>
@@ -12,4 +26,5 @@
 			</li>
 		</ul>
 	</div>
+	<button on:click={ping}>Test Button</button>
 </div>
