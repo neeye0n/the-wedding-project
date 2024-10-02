@@ -21,7 +21,7 @@ export const load = async (serverLoadEvent) => {
 		rsvp = await response.json().then((data) => data as Rsvp);
 	} catch (err) {
 		error(StatusCodes.INTERNAL_SERVER_ERROR, {
-			message: ErrorMessages.InternalServerError.join('||')
+			message: ErrorMessages.InvalidInviteLink.join('||')
 		});
 	}
 

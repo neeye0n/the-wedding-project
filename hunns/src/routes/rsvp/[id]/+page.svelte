@@ -17,18 +17,6 @@
 	}
 	let requestedSeats: number = getRequestedSeats();
 
-	function showReadableDate(): string {
-		const formattedDate = DateTime.fromISO(rsvp.RespondedOn.toString() || '').toLocaleString({
-			weekday: 'short',
-			month: 'short',
-			day: '2-digit',
-			hour: '2-digit',
-			minute: '2-digit',
-			hour12: true
-		});
-		return formattedDate;
-	}
-
 	function getMembers(): string[] {
 		return rsvp.Members.slice(0, rsvp.AllocatedSeats);
 	}
