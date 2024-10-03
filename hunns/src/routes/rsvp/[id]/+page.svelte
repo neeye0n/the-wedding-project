@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { DateTime } from 'luxon';
 	import { getToastStore } from '@skeletonlabs/skeleton';
 	import { goto } from '$app/navigation';
 	import type { ToastSettings } from '@skeletonlabs/skeleton';
@@ -103,7 +102,7 @@
 
 <main>
 	<div class="flex items-center justify-center min-h-screen" style="font-family: Avenir LT Std;">
-		<div class="card w-96 p-8 variant-filled block card card-hover p-4">
+		<div class="card w-96 variant-filled block card-hover p-4">
 			<div class="card-header border-b-[2px] border-primary-900 pb-5">
 				<h2 class="text-center text-5xl font-black" style="font-family: Didot;">
 					{UiMessages.Header}
