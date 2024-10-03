@@ -1,5 +1,4 @@
 // src/hooks.server.ts
-import { error } from '@sveltejs/kit';
 import type { Handle } from '@sveltejs/kit';
 
 export const handle: Handle = async ({ event, resolve }) => {

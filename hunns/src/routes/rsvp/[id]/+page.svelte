@@ -126,6 +126,8 @@
 	];
 </script>
 
+<meta name="viewport" content="width=device-width, initial-scale=0.9" />
+
 <main>
 	<div class="flex items-center justify-center min-h-screen" style="font-family: Avenir LT Std;">
 		<div class="card w-96 variant-filled block card-hover p-4">
