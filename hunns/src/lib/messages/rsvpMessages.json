@@ -2,7 +2,8 @@
 	"ToastMessages": {
 		"ApiError": "Oops! Something went wrong. Please try again or Contact the RSVP Admin.",
 		"MaxSeatsError": "You can't get more than {reservedSeats} seats.",
-		"MinSeatsError": "You can't get less than 0 seats."
+		"MinSeatsError": "You can't get less than 0 seats.",
+		"SeatsNumberError": "This is an invalid number for seats."
 	},
 	"UiMessages": {
 		"Header": "You're invited.",

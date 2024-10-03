@@ -24,6 +24,10 @@
 		if (requestedSeats > rsvp.AllocatedSeats || requestedSeats <= 0) {
 			return false;
 		}
+
+		if (requestedSeats % 1 !== 0) {
+			return false;
+		}
 		return true;
 	}
 
@@ -69,6 +73,16 @@
 		toastInputValidations();
 	}
 
+	function handleKeyDown(event: any) {
+		const value = event.target.value;
+		// Allow only positive whole numbers
+		if (!/^\d*$/.test(value)) {
+			// Remove non-digit characters
+			event.target.value = value.replace(/\D/g, '');
+		}
+		requestedSeats = event.target.value;
+	}
+
 	function toastInputValidations() {
 		if (requestedSeats > rsvp.AllocatedSeats) {
 			const t: ToastSettings = {
@@ -80,6 +94,7 @@
 			};
 			toastStore.trigger(t);
 			requestedSeats = rsvp.AllocatedSeats;
+			return;
 		}
 
 		if (requestedSeats <= 0) {
@@ -89,6 +104,17 @@
 			};
 			toastStore.trigger(t);
 			requestedSeats = rsvp.AllocatedSeats;
+			return;
+		}
+
+		if (requestedSeats % 1 !== 0) {
+			const t: ToastSettings = {
+				message: ToastMessages.SeatsNumberError,
+				background: 'variant-filled-warning'
+			};
+			toastStore.trigger(t);
+			requestedSeats = rsvp.AllocatedSeats;
+			return;
 		}
 	}
 
@@ -156,8 +182,12 @@
 					id="attendeeCount"
 					min="1"
 					max={rsvp.AllocatedSeats}
+					step="1"
+					inputmode="numeric"
+					pattern="\d*"
 					bind:value={requestedSeats}
 					on:blur={handleInput}
+					on:keypress={handleKeyDown}
 				/>
 			</div>
 			<div class="flex justify-center mt-4 pb-1">
