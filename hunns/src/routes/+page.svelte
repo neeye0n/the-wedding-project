@@ -33,7 +33,7 @@
 		>
 			<div class="flex justify-between h-2/5">
 				<div
-					class="card !bg-transparent w-4/5 h-full text-right text-primary-500 text-ellipsis overflow-hidden p-10 pb-0"
+					class="card flex flex-col justify-center !bg-transparent w-4/5 h-full text-right text-primary-500 text-ellipsis overflow-hidden p-7 pl-5 pb-0"
 				>
 					<div class="card-header pr-0 pt-0 pb-5">
 						<h2 class="text-2xl font-extrabold tracking-wider pb-1">
@@ -50,7 +50,7 @@
 					</div>
 				</div>
 				<div
-					class="card !bg-transparent w-4/5 h-full text-left text-primary-500 text-ellipsis overflow-hidden p-10 pb-0"
+					class="card flex flex-col justify-center !bg-transparent w-4/5 h-full text-left text-primary-500 text-ellipsis overflow-hidden p-7 pr-5 pb-0"
 				>
 					<div class="card-header pl-0 pt-0 pb-5">
 						<h2 class="text-2xl font-extrabold tracking-wider pb-1">
