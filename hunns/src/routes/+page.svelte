@@ -36,10 +36,10 @@
 					class="card !bg-transparent w-4/5 h-full text-right text-primary-500 text-ellipsis overflow-hidden p-10 pb-0"
 				>
 					<div class="card-header pr-0 pt-0 pb-5">
-						<h2 class="text-3xl font-extrabold tracking-wider pb-1">
+						<h2 class="text-2xl font-extrabold tracking-wider pb-1">
 							{texts.Bride.Title.toUpperCase()}
 						</h2>
-						<p class="tracking-widest font-extralight text-2xl">
+						<p class="tracking-widest font-extralight text-xl">
 							{texts.Bride.FullName.toUpperCase()}
 						</p>
 					</div>
@@ -53,10 +53,10 @@
 					class="card !bg-transparent w-4/5 h-full text-left text-primary-500 text-ellipsis overflow-hidden p-10 pb-0"
 				>
 					<div class="card-header pl-0 pt-0 pb-5">
-						<h2 class="text-3xl font-extrabold tracking-wider pb-1">
+						<h2 class="text-2xl font-extrabold tracking-wider pb-1">
 							{texts.Groom.Title.toUpperCase()}
 						</h2>
-						<p class="tracking-widest font-extralight text-2xl">
+						<p class="tracking-widest font-extralight text-xl">
 							{texts.Groom.FullName.toUpperCase()}
 						</p>
 					</div>
@@ -68,17 +68,17 @@
 				</div>
 			</div>
 			<div class="grid place-items-center">
-				<img class="h-[40px]" src="./heart.png" alt="heart" />
+				<img class="h-[35px]" src="./heart.png" alt="heart" />
 			</div>
 			<div class="grid h-2/5 w-1/2 place-content-center justify-center">
 				<div
 					class="card !bg-transparent h-full text-primary-500 text-center text-ellipsis overflow-hidden pb-0"
 				>
 					<div class="card-header pb-5">
-						<h2 class="text-3xl font-extrabold tracking-wider pb-1">
+						<h2 class="text-2xl font-extrabold tracking-wider pb-1">
 							{texts.Couple.Title.toUpperCase()}
 						</h2>
-						<p class="tracking-widest font-extralight text-2xl">
+						<p class="tracking-widest font-extralight text-xl">
 							{texts.Couple.Heading.toUpperCase()}
 						</p>
 					</div>
