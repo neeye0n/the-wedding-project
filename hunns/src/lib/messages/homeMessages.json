@@ -1,6 +1,21 @@
 {
-	"UiMessage": {
-		"HeaderLine1": "We are getting married!",
-		"HeaderLine2": "February 26, 2025 in Lipa Batangas"
+	"Heading": {
+		"Line1": "We are getting married!",
+		"Line2": "February 26, 2025 in Lipa Batangas"
+	},
+	"Bride": {
+		"Title": "The Bride",
+		"FullName": "Sarrie Joy Peña",
+		"Story": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ullamcorper metus in tortor suscipit viverra. Nulla id turpis condimentum sem accumsan lacinia. Fusce non iaculis nulla. Sed hendrerit eleifend placerat. Curabitur vel cursus ex. Morbi in erat gravida risus pellentesque sollicitudin. Ut et lorem felis. Morbi risus tortor, cursus a finibus non, feugiat ut orci. In elementum nulla sed pharetra hendrerit. Donec vehicula volutpat nunc, quis imperdiet nibh dapibus id."
+	},
+	"Groom": {
+		"Title": "The Groom",
+		"FullName": "Marc Joemar Estigoy",
+		"Story": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ullamcorper metus in tortor suscipit viverra. Nulla id turpis condimentum sem accumsan lacinia. Fusce non iaculis nulla. Sed hendrerit eleifend placerat. Curabitur vel cursus ex. Morbi in erat gravida risus pellentesque sollicitudin. Ut et lorem felis. Morbi risus tortor, cursus a finibus non, feugiat ut orci. In elementum nulla sed pharetra hendrerit. Donec vehicula volutpat nunc, quis imperdiet nibh dapibus id."
+	},
+	"Couple": {
+		"Title": "Our Story",
+		"Heading": "Joemar & Sarrie",
+		"Story": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ullamcorper metus in tortor suscipit viverra. Nulla id turpis condimentum sem accumsan lacinia. Fusce non iaculis nulla. Sed hendrerit eleifend placerat. Curabitur vel cursus ex. Morbi in erat gravida risus pellentesque sollicitudin. Ut et lorem felis. Morbi risus tortor, cursus a finibus non, feugiat ut orci. In elementum nulla sed pharetra hendrerit. Donec vehicula volutpat nunc, quis imperdiet nibh dapibus id."
 	}
 }

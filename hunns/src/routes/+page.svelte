@@ -3,7 +3,7 @@
 	import type { PageServerData } from './$types';
 
 	export let data: PageServerData;
-	let uiStrings = data.messages.UiMessage;
+	let texts = data.messages;
 	let parallax;
 	let disabled = false;
 	let fancy = 'fancy'.split('');
@@ -19,9 +19,9 @@
 
 			<div class="text-center" style="font-family: Avenir LT Std;">
 				<h1 class="text-5xl font-bold tracking-widest">
-					{uiStrings.HeaderLine1.toUpperCase()}
+					{texts.Heading.Line1.toUpperCase()}
 				</h1>
-				<h2 class="text-xl pt-10 tracking-wider">{uiStrings.HeaderLine2.toUpperCase()}</h2>
+				<h2 class="text-xl pt-10 tracking-wider">{texts.Heading.Line2.toUpperCase()}</h2>
 			</div>
 		</ParallaxLayer>
 
@@ -29,61 +29,62 @@
 			offset={1}
 			rate={0}
 			class="bg-secondary-200 flex flex-col justify-center items-center"
+			style="font-family: Avenir LT Std;"
 		>
 			<div class="flex justify-between h-2/5">
 				<div
-					class="card !bg-transparent w-4/5 h-4/5 text-right text-primary-500 text-ellipsis overflow-hidden p-10"
+					class="card !bg-transparent w-4/5 h-full text-right text-primary-500 text-ellipsis overflow-hidden p-10 pb-0"
 				>
 					<div class="card-header pr-0 pt-0 pb-5">
-						<h2 class="text-3xl font-extrabold tracking-wider">THE BRIDE</h2>
-						<p class="tracking-widest font-extralight text-2xl">SARRIE JOY PEÑA</p>
+						<h2 class="text-3xl font-extrabold tracking-wider pb-1">
+							{texts.Bride.Title.toUpperCase()}
+						</h2>
+						<p class="tracking-widest font-extralight text-2xl">
+							{texts.Bride.FullName.toUpperCase()}
+						</p>
 					</div>
 					<div class="p4">
-						<p class="text-md font-light tracking-wide">
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ullamcorper metus in
-							tortor suscipit viverra. Nulla id turpis condimentum sem accumsan lacinia. Fusce non
-							iaculis nulla. Sed hendrerit eleifend placerat. Curabitur vel cursus ex. Morbi in erat
-							gravida risus pellentesque sollicitudin. Ut et lorem felis. Morbi risus tortor, cursus
-							a finibus non, feugiat ut orci.
+						<p class="text-md tracking-wide">
+							{texts.Bride.Story}
 						</p>
 					</div>
 				</div>
 				<div
-					class="card !bg-transparent w-4/5 h-4/5 text-left text-primary-500 text-ellipsis overflow-hidden p-10"
+					class="card !bg-transparent w-4/5 h-full text-left text-primary-500 text-ellipsis overflow-hidden p-10 pb-0"
 				>
 					<div class="card-header pl-0 pt-0 pb-5">
-						<h2 class="text-3xl font-extrabold tracking-wider">THE GROOM</h2>
-						<p class="tracking-widest font-extralight text-2xl">MARC JOEMAR ESTIGOY</p>
+						<h2 class="text-3xl font-extrabold tracking-wider pb-1">
+							{texts.Groom.Title.toUpperCase()}
+						</h2>
+						<p class="tracking-widest font-extralight text-2xl">
+							{texts.Groom.FullName.toUpperCase()}
+						</p>
 					</div>
 					<div class="p4">
-						<p class="text-md font-light tracking-wide">
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ullamcorper metus in
-							tortor suscipit viverra. Nulla id turpis condimentum sem accumsan lacinia. Fusce non
-							iaculis nulla. Sed hendrerit eleifend placerat. Curabitur vel cursus ex. Morbi in erat
-							gravida risus pellentesque sollicitudin. Ut et lorem felis. Morbi risus tortor, cursus
-							a finibus non, feugiat ut orci.
+						<p class="text-md tracking-wide">
+							{texts.Groom.Story}
 						</p>
 					</div>
 				</div>
 			</div>
 			<div class="grid place-items-center">
-				<img class="h-[40px]" src="./heart.png" alt="Joemar And Sarrie" />
+				<img class="h-[40px]" src="./heart.png" alt="heart" />
 			</div>
 			<div class="grid h-2/5 w-1/2 place-content-center justify-center">
-				<div class="card !bg-transparent h-4/5 text-primary-500 text-center">
+				<div
+					class="card !bg-transparent h-full text-primary-500 text-center text-ellipsis overflow-hidden pb-0"
+				>
 					<div class="card-header pb-5">
-						<h2 class="text-3xl font-extrabold tracking-wider">OUR STORY</h2>
-						<p class="tracking-widest font-extralight text-2xl">JOEMAR + SARRIE</p>
+						<h2 class="text-3xl font-extrabold tracking-wider pb-1">
+							{texts.Couple.Title.toUpperCase()}
+						</h2>
+						<p class="tracking-widest font-extralight text-2xl">
+							{texts.Couple.Heading.toUpperCase()}
+						</p>
 					</div>
 					<div class="p4">
-						<p class="text-md font-light tracking-wide">
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ullamcorper metus in
-							tortor suscipit viverra. Nulla id turpis condimentum sem accumsan lacinia. Fusce non
-							iaculis nulla. Sed hendrerit eleifend placerat. Curabitur vel cursus ex. Morbi in erat
-							gravida risus pellentesque sollicitudin. Ut et lorem felis. Morbi risus tortor, cursus
-							a finibus non, feugiat ut orci. In elementum nulla sed pharetra hendrerit. Donec
-							vehicula volutpat nunc, quis imperdiet nibh dapibus id. Donec vehicula volutpat nunc,
-							quis imperdiet nibh dapibus id.
+						<p class="text-md tracking-wide">
+							{texts.Couple.Story}
 						</p>
 					</div>
 				</div>
