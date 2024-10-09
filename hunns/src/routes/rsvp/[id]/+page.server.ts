@@ -2,7 +2,8 @@ import { Rsvp } from '../../../models/rsvp';
 import rsvpPageMessages from '../../../lib/messages/rsvpMessages.json';
 import { error } from '@sveltejs/kit';
 import { StatusCodes } from 'http-status-codes';
-import { RSVP_ISOPEN } from '$env/static/private';
+import { RSVP_CLOSING } from '$env/static/private';
+import { DateTime } from 'luxon';
 
 export const load = async (serverLoadEvent) => {
 	let rsvp = {} as Rsvp;
@@ -10,7 +11,10 @@ export const load = async (serverLoadEvent) => {
 	const { id } = params;
 	const { ErrorMessages } = rsvpPageMessages;
 
-	if (RSVP_ISOPEN !== 'true') {
+	const now = DateTime.fromISO(DateTime.now().toISO(), { zone: 'Asia/Manila' });
+	const closingDate = DateTime.fromISO(RSVP_CLOSING, { zone: 'Asia/Manila' });
+
+	if (closingDate < now) {
 		error(StatusCodes.FORBIDDEN, {
 			message: ErrorMessages.Closed.join('||')
 		});

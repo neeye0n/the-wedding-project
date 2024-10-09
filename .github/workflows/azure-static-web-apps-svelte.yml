@@ -17,7 +17,7 @@ env:
   DATA_RANGE: A2:G
   UPDATING_RANGE_START: E
   UPDATING_RANGE_END: G
-  RSVP_ISOPEN: ${{ secrets.RSVP_ISOPEN }}
+  RSVP_CLOSING: ${{ secrets.RSVP_CLOSING }}
 
 jobs:
   build_and_deploy_job:

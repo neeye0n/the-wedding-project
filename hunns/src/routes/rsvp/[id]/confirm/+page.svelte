@@ -14,7 +14,7 @@
 
 <main>
 	<div class="flex items-center justify-center min-h-screen" style="font-family: Avenir LT Std;">
-		<div class="card w-96 p-8 !bg-transparent p-4">
+		<div class="card w-96 p-8 !bg-transparent">
 			<div class="card-header flex justify-between w-full" style="font-family: Belgan Aesthetic;">
 				{#each formattedDateParts as part, index}
 					<div
