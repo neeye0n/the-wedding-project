@@ -12,7 +12,13 @@ export default {
 		join(require.resolve('@skeletonlabs/skeleton'), '../**/*.{html,js,svelte,ts}')
 	],
 	theme: {
-		extend: {}
+		extend: {},
+		fontFamily: {
+			amalfiCoast: ['Amalfi Coast'],
+			avenir: ['Avenir LT Std'],
+			belganAesthetic: ['Belgan Aesthetic'],
+			didotHTF: ['Didot HTF']
+		}
 	},
 	plugins: [
 		forms,

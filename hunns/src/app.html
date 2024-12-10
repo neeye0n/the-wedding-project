@@ -2,20 +2,27 @@
 <html lang="en" class="dark">
 	<head>
 		<meta charset="utf-8" />
+		<title>Joemar & Sarrie | The Wedding</title>
+		<meta content="width=device-width, initial-scale=1" name="viewport">
 		<link rel="icon" href="%sveltekit.assets%/favicon.ico" />
-		<link rel="preload" href="%sveltekit.assets%/fonts/AvenirLTStd-Light.woff2" as="font" type="font/woff2" crossorigin="anonymous"/>
-		<link rel="preload" href="%sveltekit.assets%/fonts/AvenirLTStd-Light.woff" as="font" type="font/woff" crossorigin="anonymous"/>
-		
-		<link rel="preload" href="%sveltekit.assets%/fonts/BelganAesthetic-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous"/>
-		<link rel="preload" href="%sveltekit.assets%/fonts/BelganAesthetic-Regular.woff" as="font" type="font/woff" crossorigin="anonymous"/>
-
-		<link rel="preload" href="%sveltekit.assets%/fonts/Didot-HTF-B16-Bold-Ital.woff2" as="font" type="font/woff2" crossorigin="anonymous"/>
-		<link rel="preload" href="%sveltekit.assets%/fonts/Didot-HTF-B16-Bold-Ital.woff" as="font" type="font/woff" crossorigin="anonymous"/>
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link
+			href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap"
+			rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600;1,700&display=swap"
+			rel="stylesheet">
+		<script src="https://kit.fontawesome.com/3b059272ba.js" crossorigin="anonymous"></script>
 		%sveltekit.head%
 	</head>
 	<body data-sveltekit-preload-data="hover" data-theme="hunnsWedding" class="bg-cover bg-center">
 		<div style="display: contents">%sveltekit.body%</div>
 	</body>
+	<footer class="mt-auto p-1 text-center text-xs text-surface-100">
+		Copyright &copy; 2024 Joemar & Sarrie. Made by <a class="underline" href="https://www.linkedin.com/in/marc-joemar-estigoy-00035596">Marc Estigoy</a>
+	</footer>
 </html>
 
 <style>
@@ -23,30 +30,7 @@
 		background-image: url(%sveltekit.assets%/bg.png);
 	}
 
-	@font-face {
-		font-family: 'Avenir LT Std';
-		src: url(%sveltekit.assets%/fonts/AvenirLTStd-Light.woff2) format('woff2'),
-        	url(%sveltekit.assets%/fonts/AvenirLTStd-Light.woff) format('woff');
-		font-weight: 300;
-    	font-style: normal;
-    	font-display: swap;
-	}
-
-	@font-face {
-		font-family: 'Belgan Aesthetic';
-		src: url(%sveltekit.assets%/fonts/BelganAesthetic-Regular.woff2) format('woff2'),
-        	url(%sveltekit.assets%/fonts/BelganAesthetic-Regular.woff) format('woff');
-		font-weight: normal;
-    	font-style: normal;
-    	font-display: swap;
-	}
-
-	@font-face {
-		font-family: 'Didot';
-		src: url(%sveltekit.assets%/fonts/Didot-HTF-B16-Bold-Ital.woff2) format('woff2'),
-        	url(%sveltekit.assets%/fonts/Didot-HTF-B16-Bold-Ital.woff) format('woff');
-		font-weight: bold;
-    	font-style: normal;
-    	font-display: swap;
+	html {
+		scroll-behavior: smooth;
 	}
 </style>

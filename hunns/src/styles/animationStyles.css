@@ -1,0 +1,40 @@
+.focus-in {
+	-webkit-animation: focus-in 1.5s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+	animation: focus-in 1.5s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+}
+
+.dur-1 {
+	animation-duration: 1s;
+}
+
+.dur-2 {
+	animation-duration: 2s;
+}
+
+@-webkit-keyframes focus-in {
+	0% {
+		-webkit-filter: blur(12px);
+		filter: blur(12px);
+		opacity: 0;
+	}
+
+	100% {
+		-webkit-filter: blur(0px);
+		filter: blur(0px);
+		opacity: 1;
+	}
+}
+
+@keyframes focus-in {
+	0% {
+		-webkit-filter: blur(12px);
+		filter: blur(12px);
+		opacity: 0;
+	}
+
+	100% {
+		-webkit-filter: blur(0px);
+		filter: blur(0px);
+		opacity: 1;
+	}
+}

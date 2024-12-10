@@ -1,7 +1,19 @@
 {
-	"Heading": {
-		"Line1": "We are getting married!",
-		"Line2": "February 26, 2025 in Lipa Batangas"
+	"Hero": {
+		"Groom": "Joemar",
+		"Bride": "Sarrie",
+		"WeddingDate": "2025-02-26"
+	},
+	"Location": {
+		"Description": "The wedding will take place at a tranquil resort on the outskirts of Lipa City, Batangas. We invite you to celebrate with us in this serene location!",
+		"Time": "4:00PM",
+		"AddressLine1": "The Zen Villas Resort",
+		"AddressLine2": "Purok 6 San Jose, Lipa, Batangas",
+		"MapLink": "https://maps.app.goo.gl/QFwtzSNWwiG6xnGVA"
+	},
+	"Suggestions": {
+		"Heading": "",
+		"Subtext": ""
 	},
 	"Bride": {
 		"Title": "The Bride",

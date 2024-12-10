@@ -129,10 +129,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=0.9" />
 
 <main>
-	<div class="flex items-center justify-center min-h-screen" style="font-family: Avenir LT Std;">
-		<div class="card w-96 variant-filled block card-hover p-4">
+	<div class="flex items-center justify-center min-h-screen font-avenir">
+		<div class="card w-96 variant-filled block card-hover pb-4 m-2 pl-3 pr-3 pt-4">
 			<div class="card-header border-b-[2px] border-primary-900 pb-5">
-				<h2 class="text-center text-5xl font-black" style="font-family: Didot;">
+				<h2 class="text-center text-6xl font-black font-didotHTF italic">
 					{UiMessages.Header}
 				</h2>
 				<p class="class text-center text-xs pb-5">
@@ -204,10 +204,7 @@
 					>
 				</div>
 			</div>
-			<div
-				class="date card-footer flex justify-between w-full mt-4 p-1"
-				style="font-family: Belgan Aesthetic;"
-			>
+			<div class="date card-footer flex justify-between w-full mt-4 p-1 font-belganAesthetic">
 				{#each formattedDateParts as part, index}
 					<div
 						class="flex-1 text-center text-5xl {index === 0 || index === 1
