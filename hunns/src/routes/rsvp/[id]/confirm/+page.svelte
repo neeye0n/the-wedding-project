@@ -2,7 +2,7 @@
 	import type { PageServerData } from './$types';
 
 	export let data: PageServerData;
-	let { isAttending, messages } = data;
+	let { isAttending, messages, groom, bride } = data;
 
 	const date = new Date(data.weddingDate);
 	const formattedDateParts = [
@@ -11,6 +11,8 @@
 		date.getFullYear().toString().slice(-2)
 	];
 </script>
+
+<title>{groom.NickName} & {bride.NickName} | RSVP</title>
 
 <main>
 	<div class="flex items-center justify-center min-h-screen font-avenir">

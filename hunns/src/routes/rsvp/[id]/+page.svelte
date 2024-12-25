@@ -8,7 +8,7 @@
 	const toastStore = getToastStore();
 
 	export let data: PageServerData;
-	let { rsvp, messages } = data;
+	let { rsvp, messages, groom, bride } = data;
 	let { ToastMessages, UiMessages } = messages;
 
 	function getRequestedSeats(): number {
@@ -126,7 +126,7 @@
 	];
 </script>
 
-<title>Joemar & Sarrie | RSVP</title>
+<title>{groom.NickName} & {bride.NickName} | RSVP</title>
 <meta name="viewport" content="width=device-width, initial-scale=0.9" />
 
 <main>

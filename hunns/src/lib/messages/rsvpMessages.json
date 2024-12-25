@@ -34,5 +34,15 @@
 			"Thank You for Your Interest!",
 			"Unfortunately, the RSVP period is now closed. Thank you for your understanding."
 		]
+	},
+	"Bride": {
+		"FirstName": "Sarrie Joy",
+		"NickName": "Sarrie",
+		"LastName": "Peña"
+	},
+	"Groom": {
+		"FirstName": "Marc Joemar",
+		"NickName": "Joemar",
+		"LastName": "Estigoy"
 	}
 }

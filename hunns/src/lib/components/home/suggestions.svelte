@@ -11,7 +11,8 @@
 	<p class="bigtext">
 		The days before and after the wedding, we will stay in the resort.
 		<br />
-		If you decide to purchase a room through the resort, let them know that you are with the {groomLastName}/{brideLastName}
+		If you decide to purchase a room through the resort, let them know that you are with the
+		<span class="font-semibold">{groomLastName}/{brideLastName}</span>
 		clan so you can get a discount!
 	</p>
 	<div class="divider" />

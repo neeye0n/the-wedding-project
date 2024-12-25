@@ -35,8 +35,12 @@
 		@apply w-1/4 border-b border-primary-900 mb-[2rem] mt-[5rem];
 	}
 
+	.bankLogos {
+		display: ruby;
+	}
+
 	div.bankLogos img {
-		@apply m-auto p-3 grayscale hover:grayscale-0 transition duration-300;
+		@apply m-auto pl-4 pr-4 grayscale hover:grayscale-0 transition duration-300;
 	}
 
 	@media (max-width: 992px) {
@@ -48,6 +52,10 @@
 	@media (max-width: 576px) {
 		p.bigtext {
 			@apply text-xl;
+		}
+
+		.bankLogos {
+			@apply flex flex-col;
 		}
 	}
 </style>

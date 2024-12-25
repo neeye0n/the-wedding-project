@@ -14,14 +14,14 @@
 </script>
 
 <div class="focus-in dur-1 text-secondary-50">
-	<img src={Banner} alt="Joemar & Sarrie" />
-	<p class="font-belganAesthetic text-4xl mt-16">{formattedDate()}</p>
+	<img src={Banner} class="h-auto w-auto" alt="Joemar & Sarrie" />
+	<p class="font-belganAesthetic text-5xl mt-16">{formattedDate()}</p>
 </div>
 
 <style>
 	@media (max-width: 576px) {
 		p {
-			@apply text-2xl;
+			@apply text-3xl;
 		}
 	}
 </style>

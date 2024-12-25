@@ -1,5 +1,5 @@
 import { Rsvp } from '../../../models/rsvp';
-import rsvpPageMessages from '../../../lib/messages/rsvpMessages.json';
+import rsvpPageMessages from '$lib/messages/rsvpMessages.json';
 import { error } from '@sveltejs/kit';
 import { StatusCodes } from 'http-status-codes';
 import { RSVP_CLOSING } from '$env/static/private';
@@ -37,6 +37,8 @@ export const load = async (serverLoadEvent) => {
 
 	return {
 		rsvp: rsvp,
-		messages: rsvpPageMessages
+		messages: rsvpPageMessages,
+		groom: rsvpPageMessages.Groom,
+		bride: rsvpPageMessages.Bride
 	};
 };

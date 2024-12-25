@@ -1,5 +1,5 @@
 import { Rsvp } from '../../../../models/rsvp';
-import rsvpPageMessages from '../../../../lib/messages/rsvpMessages.json';
+import rsvpPageMessages from '$lib/messages/rsvpMessages.json';
 import { error, redirect } from '@sveltejs/kit';
 import { StatusCodes } from 'http-status-codes';
 import { RSVP_CLOSING } from '$env/static/private';
@@ -44,6 +44,8 @@ export const load = async (serverLoadEvent) => {
 	return {
 		isAttending: attending,
 		weddingDate: rsvpPageMessages.UiMessages.WeddingDate,
-		messages: ConfirmationMessages
+		messages: ConfirmationMessages,
+		groom: rsvpPageMessages.Groom,
+		bride: rsvpPageMessages.Bride
 	};
 };
