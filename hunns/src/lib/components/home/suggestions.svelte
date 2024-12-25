@@ -1,4 +1,8 @@
 <script lang="ts">
+	export let groomLastName: string;
+	export let brideLastName: string;
+	export let facebookPage: string;
+	export let websiteLink: string;
 </script>
 
 <div
@@ -7,17 +11,16 @@
 	<p class="bigtext">
 		The days before and after the wedding, we will stay in the resort.
 		<br />
-		If you decide to purchase a room through the resort, let them know that you are with the Estigoy/Peña
-		clan so you can get a
-		<span class="underline font-semibold">discount!</span>
+		If you decide to purchase a room through the resort, let them know that you are with the {groomLastName}/{brideLastName}
+		clan so you can get a discount!
 	</p>
 	<div class="divider" />
 	<p class="subtext details">
 		The Zen Villas Resort is offering special rates for the wedding week. Check their <a
-			href="https://www.facebook.com/thezenvillasresort"
-			target="_blank">Facebook page</a
+			href={facebookPage}
+			target="_blank">Facebook</a
 		>
-		and <a href="https://www.thezenvillasresort.com/en/" target="_blank">site</a> for more info.
+		page and <a href={websiteLink} target="_blank">site</a> for more info.
 	</p>
 </div>
 

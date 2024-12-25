@@ -1,5 +1,5 @@
 import type { PageServerLoad } from './$types';
-import homeMessages from '../lib/messages/homeMessages.json';
+import homeMessages from '$lib/messages/homeMessages.json';
 
 export const load = (async () => {
 	return {

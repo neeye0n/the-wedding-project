@@ -1,34 +1,41 @@
 <script lang="ts">
 	import { DateTime } from 'luxon';
 
-	export let description: string;
-	export let dateString: string;
-	export let timeString: string;
+	export let weddingPlace: string;
+	export let weddingDateTime: DateTime;
 	export let addressLine1: string;
 	export let addressLine2: string;
 	export let mapLink: string;
 
-	function formatedDate(): string {
-		const parsedDate = DateTime.fromISO(dateString);
-
-		if (parsedDate.isValid) {
-			return parsedDate.toFormat('cccc, MMMM dd, yyyy');
+	let weddingDate = (): string => {
+		if (weddingDateTime.isValid) {
+			return weddingDateTime.toFormat('cccc, MMMM dd, yyyy');
 		}
+
 		return '00 | 00 | 0000';
-	}
+	};
+
+	let timeString = (): string => {
+		if (weddingDateTime.isValid) {
+			return weddingDateTime.toFormat('hh:mm a');
+		}
+
+		return '00:00';
+	};
 </script>
 
 <div class="flex flex-col items-center justify-center text-center relative font-didotHTF">
 	<p class="bigtext">
-		{description}
+		The wedding will take place at a tranquil resort on the outskirts of {weddingPlace}. We invite
+		you to celebrate with us in this serene location!
 	</p>
 	<div class="divider" />
 	<p class="subtext">
-		<span class="font-semibold">{formatedDate()} ~ {timeString} at {addressLine1}</span>
+		<span class="font-semibold">{weddingDate()} ~ {timeString()} at {addressLine1}</span>
 		<br />
 		{addressLine2}
 	</p>
-	<p class="details">
+	<p class="details font-avenir pt-4">
 		<a href={mapLink} target="_blank">Open in Maps</a>
 	</p>
 </div>
@@ -49,7 +56,7 @@
 	p.details a,
 	p.details a:visited,
 	p.details a:any-link {
-		@apply text-2xl text-secondary-400 underline;
+		@apply text-base text-secondary-400 underline;
 	}
 
 	@media (max-width: 992px) {
@@ -62,7 +69,7 @@
 		p.details a,
 		p.details a:visited,
 		p.details a:any-link {
-			@apply text-xl;
+			@apply text-sm;
 		}
 	}
 
@@ -76,7 +83,7 @@
 		p.details a,
 		p.details a:visited,
 		p.details a:any-link {
-			@apply text-lg;
+			@apply text-sm;
 		}
 	}
 </style>

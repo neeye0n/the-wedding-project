@@ -1,33 +1,44 @@
 {
-	"Hero": {
-		"Groom": "Joemar",
-		"Bride": "Sarrie",
-		"WeddingDate": "2025-02-26"
-	},
-	"Location": {
-		"Description": "The wedding will take place at a tranquil resort on the outskirts of Lipa City, Batangas. We invite you to celebrate with us in this serene location!",
-		"Time": "4:00PM",
-		"AddressLine1": "The Zen Villas Resort",
-		"AddressLine2": "Purok 6 San Jose, Lipa, Batangas",
-		"MapLink": "https://maps.app.goo.gl/QFwtzSNWwiG6xnGVA"
-	},
-	"Suggestions": {
-		"Heading": "",
-		"Subtext": ""
-	},
+	"WeddingDateInMs": "1740556800000",
 	"Bride": {
-		"Title": "The Bride",
-		"FullName": "Sarrie Joy Peña",
-		"Story": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ullamcorper metus in tortor suscipit viverra. Nulla id turpis condimentum sem accumsan lacinia. Fusce non iaculis nulla. Sed hendrerit eleifend placerat. Curabitur vel cursus ex. Morbi in erat gravida risus pellentesque sollicitudin. Ut et lorem felis. Morbi risus tortor, cursus a finibus non, feugiat ut orci. In elementum nulla sed pharetra hendrerit. Donec vehicula volutpat nunc, quis imperdiet nibh dapibus id."
+		"FirstName": "Sarrie Joy",
+		"NickName": "Sarrie",
+		"LastName": "Peña"
 	},
 	"Groom": {
-		"Title": "The Groom",
-		"FullName": "Marc Joemar Estigoy",
-		"Story": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ullamcorper metus in tortor suscipit viverra. Nulla id turpis condimentum sem accumsan lacinia. Fusce non iaculis nulla. Sed hendrerit eleifend placerat. Curabitur vel cursus ex. Morbi in erat gravida risus pellentesque sollicitudin. Ut et lorem felis. Morbi risus tortor, cursus a finibus non, feugiat ut orci. In elementum nulla sed pharetra hendrerit. Donec vehicula volutpat nunc, quis imperdiet nibh dapibus id."
+		"FirstName": "Marc Joemar",
+		"NickName": "Joemar",
+		"LastName": "Estigoy"
 	},
-	"Couple": {
-		"Title": "Our Story",
-		"Heading": "Joemar & Sarrie",
-		"Story": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ullamcorper metus in tortor suscipit viverra. Nulla id turpis condimentum sem accumsan lacinia. Fusce non iaculis nulla. Sed hendrerit eleifend placerat. Curabitur vel cursus ex. Morbi in erat gravida risus pellentesque sollicitudin. Ut et lorem felis. Morbi risus tortor, cursus a finibus non, feugiat ut orci. In elementum nulla sed pharetra hendrerit. Donec vehicula volutpat nunc, quis imperdiet nibh dapibus id."
+	"Location": {
+		"Place": "Lipa City, Batangas",
+		"AddressLine1": "The Zen Villas Resort",
+		"AddressLine2": "Purok 6 San Jose, Lipa, Batangas"
+	},
+	"FAQ": {
+		"Questions": [
+			{
+				"Question": "What's the required dress code and color for guests?",
+				"Answer": "Semi-formal. Please refrain from wearing t-shirts, shorts, ripped jeans, and slippers. Strictly no white clothing."
+			},
+			{
+				"Question": "How to RSVP?",
+				"Answer": "RSVP links are provided for each guest group. Please confirm your attendance by January 12, 2025. Only confirmed guests will be on the guest list. Unconfirmed seats may be reallocated due to limited capacity. If your name is not on the list, access will not be granted. Thank you for your understanding."
+			},
+			{
+				"Question": "Can I bring a plus one?",
+				"Answer": "**Unfortunately, no.** We want to keep our celebration intimate, shared only with our closest family and friends. We deeply appreciate your understanding and support."
+			},
+			{
+				"Question": "Can I bring my child(ren) with me?",
+				"Answer": "Although we cherish the joy children bring, our wedding will be an adults-only event due to limited seating. The only children present will be part of the entourage or immediate family of the bride and groom. Thank you for your understanding."
+			}
+		]
+	},
+	"Links": {
+		"WeddingPlaceGMaps": "http://tiny.cc/cov2001",
+		"WeddingPlaceFbPage": "http://tiny.cc/gov2001",
+		"WeddingPlaceWebSite": "https://www.thezenvillasresort.com/en/",
+		"InvitationPdf": "http://tiny.cc/62w2001"
 	}
 }
