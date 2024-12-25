@@ -35,7 +35,7 @@
 <div
 	class="flex flex-col items-center justify-center text-center relative font-didotHTF text-primary-50"
 >
-	<div class="text-7xl pb-8 pt-8">
+	<div class="text-8xl pb-14 pt-8">
 		<h1>The Wedding Countdown</h1>
 	</div>
 	<div class="countdownContainer">
@@ -51,7 +51,7 @@
 			<h3>{minutes}</h3>
 			<span>Minutes</span>
 		</div>
-		<div class="singleCountdown">
+		<div class="singleCountdown border-none">
 			<h3>{seconds}</h3>
 			<span>Seconds</span>
 		</div>
@@ -64,15 +64,21 @@
 	}
 
 	.countdownContainer {
-		@apply flex justify-evenly text-5xl;
+		@apply flex justify-evenly text-6xl;
 	}
 
 	h3 {
-		@apply font-semibold text-6xl;
+		@apply font-semibold;
 	}
 
 	span {
 		@apply text-3xl;
+	}
+
+	@media (min-width: 993px) {
+		.singleCountdown {
+			@apply border-r;
+		}
 	}
 
 	@media (max-width: 992px) {
@@ -81,11 +87,11 @@
 		}
 
 		.countdownContainer {
-			@apply flex flex-col text-5xl;
+			@apply flex flex-col text-4xl;
 		}
 
 		.singleCountdown {
-			@apply pb-8;
+			@apply pb-4 pt-4 border-b;
 		}
 	}
 </style>

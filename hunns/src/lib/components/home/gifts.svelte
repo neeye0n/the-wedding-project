@@ -20,9 +20,15 @@
 	</p>
 	<div class="divider" />
 	<div class="bankLogos">
-		<a href={gcashQr} download target="_blank"><img src={gcashLogo} class="h-20" alt="GCash" /></a>
-		<a href={bpiQr} download target="_blank"><img src={bpiLogo} class="h-40" alt="BPI" /></a>
-		<a href={bdoQr} download target="_blank"><img src={bdoLogo} class="h-20" alt="BDO" /></a>
+		<a href={gcashQr} download target="_blank"
+			><img src={gcashLogo} class="h-20" alt="GCash" id="Gcash" /></a
+		>
+		<a href={bpiQr} download target="_blank"
+			><img src={bpiLogo} class="h-28" alt="BPI" id="BPI" /></a
+		>
+		<a href={bdoQr} download target="_blank" id="BDO"
+			><img src={bdoLogo} class="h-24 pt-3 pb-3" alt="BDO" /></a
+		>
 	</div>
 </div>
 
@@ -40,7 +46,7 @@
 	}
 
 	div.bankLogos img {
-		@apply m-auto pl-4 pr-4 grayscale hover:grayscale-0 transition duration-300;
+		@apply m-auto pl-8 pr-8 pt-4 pb-4 grayscale hover:grayscale-0 transition duration-300;
 	}
 
 	@media (max-width: 992px) {
@@ -56,6 +62,14 @@
 
 		.bankLogos {
 			@apply flex flex-col;
+		}
+
+		#BDO img {
+			@apply h-20;
+		}
+
+		#BPI img {
+			@apply h-20;
 		}
 	}
 </style>
