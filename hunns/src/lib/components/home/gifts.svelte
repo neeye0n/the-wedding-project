@@ -10,7 +10,7 @@
 </script>
 
 <div
-	class="flex flex-col items-center justify-center text-center relative font-didotHTF text-secondary-900"
+	class="flex flex-col items-center justify-center text-center relative font-cormorantG text-secondary-900"
 >
 	<p class="bigtext">
 		While your presence is all we ask for, if you wish to gift us something, you can contribute to

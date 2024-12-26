@@ -25,31 +25,32 @@
 	};
 </script>
 
-<div class="flex flex-col items-center justify-center text-center relative font-didotHTF">
+<div class="flex flex-col items-center justify-center text-center relative font-cormorantG">
 	<p class="bigtext">
-		The wedding will take place at a tranquil resort on the outskirts of {weddingPlace}. We invite
-		you to celebrate with us in this serene location!
+		The wedding will take place at a tranquil resort on the outskirts of {weddingPlace}.
 	</p>
 	<div class="divider" />
 	<p class="subtext">
+		We invite you to celebrate with us in this serene location!
+		<br />
 		<span class="font-semibold">{weddingDate()} ~ {timeString()} at {addressLine1}</span>
 		<br />
 		{addressLine2}
 	</p>
-	<p class="details font-avenir pt-4">
+	<p class="details font-avenir pt-4 leading-loose">
 		<a href={mapLink} target="_blank">
-			<i class="opacity-30 fa fa-map-marker pr-2 text-secondary-900" />Open in Maps</a
+			<i class="opacity-60 fa fa-map-marker pr-2 text-secondary-900" />Open in Maps</a
 		>
 		<br />
 		<a href={calendarInvite} target="_blank"
-			><i class="opacity-30 fa fa-calendar-plus-o pr-2 text-secondary-900" />Add to Calendar</a
+			><i class="opacity-60 fa fa-calendar-plus-o pr-2 text-secondary-900" />Add to Calendar</a
 		>
 	</p>
 </div>
 
 <style>
 	p.bigtext {
-		@apply text-7xl p-0 m-0;
+		@apply text-7xl p-0 m-0 leading-snug;
 	}
 
 	div.divider {
@@ -57,7 +58,7 @@
 	}
 
 	p.subtext {
-		@apply text-2xl m-0;
+		@apply text-2xl m-0 leading-relaxed;
 	}
 
 	p.details a,

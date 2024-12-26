@@ -6,16 +6,18 @@
 </script>
 
 <div
-	class="flex flex-col items-center justify-center text-center relative font-didotHTF text-secondary-900"
+	class="flex flex-col items-center justify-center text-center relative font-cormorantG text-secondary-900 font-normal"
 >
 	<p class="bigtext">
-		Inquiries regarding our Entourage, Attire and Timeline
+		Inquiries regarding our Entourage, Attire
 		<br />
-		are addressed in our
-		<a href={invitationLink} class="underline font-semibold" target="_blank">invitation</a>.
+		and Timeline are addressed in
+		<br />
+		<a href={invitationLink} class="underline font-semibold" target="_blank">our invitation</a>.
 	</p>
 	<div class="divider" />
 	<div class="subtext details">
+		<h1 class="text-7xl font-extrabold pb-4">?</h1>
 		<h6>Frequently Asked Questions</h6>
 		<ul>
 			{#each questions as qna}
@@ -72,6 +74,10 @@
 
 		div.subtext h6 {
 			@apply text-xl;
+		}
+
+		div.subtext h1 {
+			@apply text-5xl;
 		}
 	}
 </style>

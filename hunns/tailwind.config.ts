@@ -16,7 +16,8 @@ export default {
 		fontFamily: {
 			avenir: ['Avenir LT Std'],
 			belganAesthetic: ['Belgan Aesthetic'],
-			didotHTF: ['Didot HTF']
+			didotHTF: ['Didot HTF'],
+			cormorantG: ['CormorantGaramond']
 		}
 	},
 	plugins: [

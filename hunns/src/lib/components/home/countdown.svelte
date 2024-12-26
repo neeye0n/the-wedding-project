@@ -33,7 +33,7 @@
 </script>
 
 <div
-	class="flex flex-col items-center justify-center text-center relative font-didotHTF text-primary-50"
+	class="flex flex-col items-center justify-center text-center relative font-cormorantG text-primary-50"
 >
 	<div class="text-8xl pb-14 pt-8">
 		<h1>The Wedding Countdown</h1>
@@ -68,7 +68,7 @@
 	}
 
 	h3 {
-		@apply font-semibold;
+		@apply font-normal;
 	}
 
 	span {

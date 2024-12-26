@@ -13,7 +13,8 @@
 	};
 </script>
 
-<div class="focus-in dur-1 text-secondary-50">
+<div class="focus-in dur-1 text-secondary-50 text-center">
+	<!-- <p class="font-cormorantG text-5xl mb-16">We're getting married!</p> -->
 	<img src={Banner} class="h-auto w-auto" alt="Joemar & Sarrie" />
 	<p class="font-belganAesthetic text-5xl mt-16">{formattedDate()}</p>
 </div>

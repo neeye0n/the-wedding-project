@@ -6,31 +6,35 @@
 </script>
 
 <div
-	class="flex flex-col items-center justify-center text-center relative font-didotHTF text-secondary-900"
+	class="flex flex-col items-center justify-center text-center relative font-cormorantG text-secondary-900"
 >
+	<h1 class="text-8xl font-extrabold pb-8">%</h1>
 	<p class="bigtext">
-		The days before and after the wedding, we will stay in the resort.
+		We will be staying at the resort the days before and after the wedding.
 		<br />
-		If you decide to purchase a room through the resort, let them know that you are with the
-		<span class="font-semibold">{groomLastName}/{brideLastName}</span>
-		clan so you can get a discount!
+		If you choose to book a room, be sure to mention you're with the
+		<span class="font-semibold">{groomLastName}/{brideLastName}</span> clan to receive a discount!
 	</p>
 	<div class="divider" />
 	<p class="subtext details">
-		The Zen Villas Resort is offering special rates for the wedding week. Check their <a
-			href={facebookPage}
-			target="_blank"><i class="opacity-30 fa fa-facebook pr-1 text-primary-900" />Facebook</a
+		The Zen Villas Resort is offering special rates for the wedding week.
+		<br />
+		Check their
+		<a href={facebookPage} target="_blank"
+			><i class="opacity-30 fa fa-facebook pr-1 text-primary-900" />Facebook</a
 		>
 		page and
 		<a href={websiteLink} target="_blank"
 			><i class="opacity-30 fa fa-chrome pr-1 text-primary-900" />Website</a
 		> for more info.
 	</p>
+
+	<div class="header"></div>
 </div>
 
 <style>
 	p.bigtext {
-		@apply text-5xl p-0 m-0 leading-snug;
+		@apply text-6xl p-0 m-0 leading-tight;
 	}
 
 	div.divider {
@@ -38,7 +42,7 @@
 	}
 
 	p.subtext {
-		@apply text-xl m-0;
+		@apply text-2xl m-0;
 	}
 
 	p.details a,
@@ -54,6 +58,9 @@
 	}
 
 	@media (max-width: 576px) {
+		h1 {
+			@apply text-6xl;
+		}
 		p.bigtext {
 			@apply text-xl;
 		}

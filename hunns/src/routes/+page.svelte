@@ -74,7 +74,7 @@
 		</a>
 	</section>
 
-	<section id="countdown">
+	<section id="countdown" class="standard">
 		<Countdown weddingDate={weddingDate()} />
 		<a href="#hero" class="absolute bottom-8 focus-in dur-2">
 			<i class="opacity-30 fa fa-2x fa-chevron-up" />
