@@ -41,6 +41,7 @@
 			addressLine1={texts.Location.AddressLine1}
 			addressLine2={texts.Location.AddressLine2}
 			mapLink={texts.Links.WeddingPlaceGMaps}
+			calendarInvite={texts.Links.CalendarInvite}
 		/>
 		<a href="#suggestions" class="absolute bottom-8 focus-in dur-2 text-tertiary-900">
 			<i class="opacity-30 fa fa-2x fa-chevron-down" />

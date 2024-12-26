@@ -23,8 +23,8 @@
 		<a href={gcashQr} download target="_blank"
 			><img src={gcashLogo} class="h-20" alt="GCash" id="Gcash" /></a
 		>
-		<a href={bpiQr} download target="_blank"
-			><img src={bpiLogo} class="h-28" alt="BPI" id="BPI" /></a
+		<a href={bpiQr} download target="_blank" id="BPI"
+			><img src={bpiLogo} class="h-28" alt="BPI" /></a
 		>
 		<a href={bdoQr} download target="_blank" id="BDO"
 			><img src={bdoLogo} class="h-24 pt-3 pb-3" alt="BDO" /></a

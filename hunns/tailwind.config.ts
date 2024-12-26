@@ -14,7 +14,6 @@ export default {
 	theme: {
 		extend: {},
 		fontFamily: {
-			amalfiCoast: ['Amalfi Coast'],
 			avenir: ['Avenir LT Std'],
 			belganAesthetic: ['Belgan Aesthetic'],
 			didotHTF: ['Didot HTF']

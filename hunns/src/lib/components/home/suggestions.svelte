@@ -19,9 +19,12 @@
 	<p class="subtext details">
 		The Zen Villas Resort is offering special rates for the wedding week. Check their <a
 			href={facebookPage}
-			target="_blank">Facebook</a
+			target="_blank"><i class="opacity-30 fa fa-facebook pr-1 text-primary-900" />Facebook</a
 		>
-		page and <a href={websiteLink} target="_blank">site</a> for more info.
+		page and
+		<a href={websiteLink} target="_blank"
+			><i class="opacity-30 fa fa-chrome pr-1 text-primary-900" />Website</a
+		> for more info.
 	</p>
 </div>
 

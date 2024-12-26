@@ -2,7 +2,11 @@
 import type { Handle } from '@sveltejs/kit';
 
 export const handle: Handle = async ({ event, resolve }) => {
-	const response = await resolve(event);
+	const response = await resolve(event, {
+		preload: ({ type }) => {
+			return type === 'font' || type === 'js' || type === 'css';
+		}
+	});
 
 	// If the status is 404, redirect the user to the homepage
 	if (response.status === 404) {

@@ -6,6 +6,7 @@
 	export let addressLine1: string;
 	export let addressLine2: string;
 	export let mapLink: string;
+	export let calendarInvite: string;
 
 	let weddingDate = (): string => {
 		if (weddingDateTime.isValid) {
@@ -36,7 +37,13 @@
 		{addressLine2}
 	</p>
 	<p class="details font-avenir pt-4">
-		<a href={mapLink} target="_blank">Open in Maps</a>
+		<a href={mapLink} target="_blank">
+			<i class="opacity-30 fa fa-map-marker pr-2 text-secondary-900" />Open in Maps</a
+		>
+		<br />
+		<a href={calendarInvite} target="_blank"
+			><i class="opacity-30 fa fa-calendar-plus-o pr-2 text-secondary-900" />Add to Calendar</a
+		>
 	</p>
 </div>
 
