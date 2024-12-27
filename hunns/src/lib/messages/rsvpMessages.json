@@ -11,7 +11,7 @@
 		"HeaderMessageLine2": "WE RESERVED {allocatedSeats} SEAT/S FOR YOU.",
 		"HeaderMessageLine3": "YOU PREVIOUSLY REQUESTED {reservedSeats} SEAT/S.",
 		"WeddingDate": "2025-02-26",
-		"BodyMessage": "If some guests are unable to attend, we'd greatly appreciate it if you could update the number of {verb} seats. Thanks!",
+		"BodyMessage": "If some guests are unable to attend, we'd greatly appreciate it if you could update the number of {verb} seats. Thanks! Please respond on or before **January 19, 2025**",
 		"ReservedSeatsLabel": "{verb} Seats",
 		"AcceptInvitationButton": "ACCEPT",
 		"RefuseIvitationButton": "DECLINE"

@@ -4,6 +4,7 @@
 	import type { ToastSettings } from '@skeletonlabs/skeleton';
 	import type { RsvpRequestBody } from '../../../models/rsvpRequestBody';
 	import type { PageServerData } from './$types';
+	import { marked } from 'marked';
 
 	const toastStore = getToastStore();
 
@@ -165,9 +166,9 @@
 			<div class="justify-center pb-1 text-sm text-center">
 				<p>
 					{#if rsvp.HasResponded}
-						{UiMessages.BodyMessage.replace('{verb}', 'requested')}
+						{@html marked(UiMessages.BodyMessage.replace('{verb}', 'requested'))}
 					{:else}
-						{UiMessages.BodyMessage.replace('{verb}', 'reserved')}
+						{@html marked(UiMessages.BodyMessage.replace('{verb}', 'reserved'))}
 					{/if}
 				</p>
 				<label for="attendeeCount">
